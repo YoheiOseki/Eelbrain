@@ -9,8 +9,8 @@ from libc.math cimport exp, log, sqrt
 ctypedef np.int64_t int64
 ctypedef np.float64_t float64
 
-def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):
-    """Create a gaussian smoothing kernel
+def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):
+    """Create a gaussian smoothing matrix
 
     Parameters
     ----------

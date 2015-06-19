@@ -7,15 +7,15 @@ from scipy.signal import gaussian
 from nose.tools import eq_
 from numpy.testing import assert_allclose
 
-from eelbrain._data_opt import gaussian_kernel
+from eelbrain._data_opt import gaussian_smoother
 
 
-def test_gaussian_kernel():
+def test_gaussian_smoother():
     "Test gaussian_kernel function"
     x, y = np.mgrid[:99, :99]
     d = np.abs(x - y, dtype=np.float64)
     d[9, 0] = d[0, 9] = -1
-    g = gaussian_kernel(d, 40.)
+    g = gaussian_smoother(d, 40.)
 
     # basic properties
     eq_(g.shape, (99, 99))

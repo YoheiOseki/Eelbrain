@@ -696,7 +696,7 @@ typedef __pyx_t_5numpy_int64_t __pyx_t_8eelbrain_9_data_opt_int64;
  * ctypedef np.int64_t int64
  * ctypedef np.float64_t float64             # <<<<<<<<<<<<<<
  * 
- * def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):
+ * def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):
  */
 typedef __pyx_t_5numpy_float64_t __pyx_t_8eelbrain_9_data_opt_float64;
 #if CYTHON_CCOMPLEX
@@ -1109,7 +1109,7 @@ int __pyx_module_is_main_eelbrain___data_opt = 0;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_RuntimeError;
-static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_dist, double __pyx_v_fwhm); /* proto */
+static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_smoother(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_dist, double __pyx_v_fwhm); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static char __pyx_k_B[] = "B";
@@ -1148,7 +1148,7 @@ static char __pyx_k_float64[] = "float64";
 static char __pyx_k_ValueError[] = "ValueError";
 static char __pyx_k_n_vertices[] = "n_vertices";
 static char __pyx_k_RuntimeError[] = "RuntimeError";
-static char __pyx_k_gaussian_kernel[] = "gaussian_kernel";
+static char __pyx_k_gaussian_smoother[] = "gaussian_smoother";
 static char __pyx_k_eelbrain__data_opt[] = "eelbrain._data_opt";
 static char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static char __pyx_k_Users_christian_Code_Eelbrain_e[] = "/Users/christian/Code/Eelbrain/eelbrain/_data_opt.pyx";
@@ -1171,7 +1171,7 @@ static PyObject *__pyx_n_s_eelbrain__data_opt;
 static PyObject *__pyx_n_s_empty;
 static PyObject *__pyx_n_s_float64;
 static PyObject *__pyx_n_s_fwhm;
-static PyObject *__pyx_n_s_gaussian_kernel;
+static PyObject *__pyx_n_s_gaussian_smoother;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_n_vertices;
@@ -1202,16 +1202,16 @@ static PyObject *__pyx_codeobj__9;
 /* "eelbrain/_data_opt.pyx":12
  * ctypedef np.float64_t float64
  * 
- * def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
- *     """Create a gaussian smoothing kernel
+ * def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
+ *     """Create a gaussian smoothing matrix
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8eelbrain_9_data_opt_gaussian_kernel[] = "Create a gaussian smoothing kernel\n\n    Parameters\n    ----------\n    dist : array (float64)\n        Distances; dist[i, j] should provide the distance for any vertex pair i,\n         j. Distances < 0 indicate absence of a connection.\n    fwhm : float\n        The full width at half maximum of the kernel.\n\n    Returns\n    -------\n    kernel : array (float64)\n        Gaussian smoothing kernel, with same shape as dist.\n    ";
-static PyMethodDef __pyx_mdef_8eelbrain_9_data_opt_1gaussian_kernel = {"gaussian_kernel", (PyCFunction)__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8eelbrain_9_data_opt_gaussian_kernel};
-static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_smoother(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8eelbrain_9_data_opt_gaussian_smoother[] = "Create a gaussian smoothing matrix\n\n    Parameters\n    ----------\n    dist : array (float64)\n        Distances; dist[i, j] should provide the distance for any vertex pair i,\n         j. Distances < 0 indicate absence of a connection.\n    fwhm : float\n        The full width at half maximum of the kernel.\n\n    Returns\n    -------\n    kernel : array (float64)\n        Gaussian smoothing kernel, with same shape as dist.\n    ";
+static PyMethodDef __pyx_mdef_8eelbrain_9_data_opt_1gaussian_smoother = {"gaussian_smoother", (PyCFunction)__pyx_pw_8eelbrain_9_data_opt_1gaussian_smoother, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8eelbrain_9_data_opt_gaussian_smoother};
+static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_smoother(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_dist = 0;
   double __pyx_v_fwhm;
   int __pyx_lineno = 0;
@@ -1219,7 +1219,7 @@ static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("gaussian_kernel (wrapper)", 0);
+  __Pyx_RefNannySetupContext("gaussian_smoother (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dist,&__pyx_n_s_fwhm,0};
     PyObject* values[2] = {0,0};
@@ -1240,11 +1240,11 @@ static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_fwhm)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("gaussian_kernel", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("gaussian_smoother", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "gaussian_kernel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "gaussian_smoother") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1257,14 +1257,14 @@ static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("gaussian_kernel", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("gaussian_smoother", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("eelbrain._data_opt.gaussian_kernel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("eelbrain._data_opt.gaussian_smoother", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dist), __pyx_ptype_5numpy_ndarray, 1, "dist", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_r = __pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(__pyx_self, __pyx_v_dist, __pyx_v_fwhm);
+  __pyx_r = __pyx_pf_8eelbrain_9_data_opt_gaussian_smoother(__pyx_self, __pyx_v_dist, __pyx_v_fwhm);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1275,7 +1275,7 @@ static PyObject *__pyx_pw_8eelbrain_9_data_opt_1gaussian_kernel(PyObject *__pyx_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_dist, double __pyx_v_fwhm) {
+static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_smoother(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_dist, double __pyx_v_fwhm) {
   __pyx_t_8eelbrain_9_data_opt_int64 __pyx_v_source;
   __pyx_t_8eelbrain_9_data_opt_int64 __pyx_v_target;
   long __pyx_v_n_vertices;
@@ -1308,7 +1308,7 @@ static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(CYTHON_UNUSED PyO
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("gaussian_kernel", 0);
+  __Pyx_RefNannySetupContext("gaussian_smoother", 0);
   __pyx_pybuffer_dist.pybuffer.buf = NULL;
   __pyx_pybuffer_dist.refcount = 0;
   __pyx_pybuffernd_dist.data = NULL;
@@ -1577,8 +1577,8 @@ static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(CYTHON_UNUSED PyO
   /* "eelbrain/_data_opt.pyx":12
  * ctypedef np.float64_t float64
  * 
- * def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
- *     """Create a gaussian smoothing kernel
+ * def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
+ *     """Create a gaussian smoothing matrix
  * 
  */
 
@@ -1594,7 +1594,7 @@ static PyObject *__pyx_pf_8eelbrain_9_data_opt_gaussian_kernel(CYTHON_UNUSED PyO
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_dist.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("eelbrain._data_opt.gaussian_kernel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("eelbrain._data_opt.gaussian_smoother", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -3644,7 +3644,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_empty, __pyx_k_empty, sizeof(__pyx_k_empty), 0, 0, 1, 1},
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
   {&__pyx_n_s_fwhm, __pyx_k_fwhm, sizeof(__pyx_k_fwhm), 0, 0, 1, 1},
-  {&__pyx_n_s_gaussian_kernel, __pyx_k_gaussian_kernel, sizeof(__pyx_k_gaussian_kernel), 0, 0, 1, 1},
+  {&__pyx_n_s_gaussian_smoother, __pyx_k_gaussian_smoother, sizeof(__pyx_k_gaussian_smoother), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_n_vertices, __pyx_k_n_vertices, sizeof(__pyx_k_n_vertices), 0, 0, 1, 1},
@@ -3755,14 +3755,14 @@ static int __Pyx_InitCachedConstants(void) {
   /* "eelbrain/_data_opt.pyx":12
  * ctypedef np.float64_t float64
  * 
- * def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
- *     """Create a gaussian smoothing kernel
+ * def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
+ *     """Create a gaussian smoothing matrix
  * 
  */
   __pyx_tuple__8 = PyTuple_Pack(8, __pyx_n_s_dist, __pyx_n_s_fwhm, __pyx_n_s_source, __pyx_n_s_target, __pyx_n_s_n_vertices, __pyx_n_s_std, __pyx_n_s_a, __pyx_n_s_out); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_christian_Code_Eelbrain_e, __pyx_n_s_gaussian_kernel, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_christian_Code_Eelbrain_e, __pyx_n_s_gaussian_smoother, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3891,13 +3891,13 @@ PyMODINIT_FUNC PyInit__data_opt(void)
   /* "eelbrain/_data_opt.pyx":12
  * ctypedef np.float64_t float64
  * 
- * def gaussian_kernel(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
- *     """Create a gaussian smoothing kernel
+ * def gaussian_smoother(np.ndarray[float64, ndim=2] dist, double fwhm):             # <<<<<<<<<<<<<<
+ *     """Create a gaussian smoothing matrix
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8eelbrain_9_data_opt_1gaussian_kernel, NULL, __pyx_n_s_eelbrain__data_opt); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8eelbrain_9_data_opt_1gaussian_smoother, NULL, __pyx_n_s_eelbrain__data_opt); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_gaussian_kernel, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_gaussian_smoother, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "eelbrain/_data_opt.pyx":1
